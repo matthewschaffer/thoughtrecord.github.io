@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beck Institute Thought Record</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #e8f4f8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2c5282;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #2c5282;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .key-message {
+            background: white;
+            border: 3px solid #2c5282;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .key-message p {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #2c5282;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        .subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3182ce;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .thought-record-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .column {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            min-height: 250px;
+        }
+
+        .column h3 {
+            color: #2d3748;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #cbd5e0;
+        }
+
+        .column textarea {
+            width: 100%;
+            min-height: 180px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            background: white;
+        }
+
+        .column textarea:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+
+        .belief-slider {
+            margin: 10px 0;
+        }
+
+        .belief-slider label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .belief-slider input[type="range"] {
+            width: 100%;
+            margin: 8px 0;
+        }
+
+        .belief-value {
+            text-align: center;
+            font-weight: bold;
+            color: #3182ce;
+            font-size: 1.2em;
+        }
+
+        .distortions-section {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .distortions-section h3 {
+            color: #c53030;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .distortions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .distortion-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #fed7d7;
+        }
+
+        .distortion-item input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 3px;
+            transform: scale(1.2);
+        }
+
+        .distortion-content {
+            flex: 1;
+        }
+
+        .distortion-name {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .distortion-example {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .questions-section {
+            background: white;
+            border: 2px solid #3182ce;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .questions-section h3 {
+            color: #2c5282;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .question {
+            margin-bottom: 12px;
+            padding: 8px;
+            background: #f8fafc;
+            border-radius: 6px;
+            border-left: 4px solid #3182ce;
+        }
+
+        .question strong {
+            color: #2c5282;
+        }
+
+        .question textarea {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background: #2c5282;
+        }
+
+        .btn-secondary {
+            background: #718096;
+        }
+
+        .btn-secondary:hover {
+            background: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .thought-record-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .distortions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Thought Record</h1>
+            <p class="subtitle">Interactive worksheet for examining and challenging thoughts</p>
+        </div>
+
+        <div class="key-message">
+            <p>Just because you think something, doesn't necessarily mean it's true.</p>
+        </div>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> When you notice your mood getting worse or find yourself engaging in unhelpful behavior, ask yourself "What's going through my mind right now?" Complete this thought record to examine and challenge your thoughts. Spend just 5-10 minutes on this exercise. <strong>Remember: It was worth doing this worksheet if your mood improves by 10% or more.</strong>
+        </div>
+
+        <div class="thought-record-grid">
+            <div class="column">
+                <h3>Situation</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">What event or situation triggered the unpleasant emotion? (external or internal)</p>
+                <textarea id="situation" placeholder="Describe the situation that triggered your emotional response..."></textarea>
+            </div>
+
+            <div class="column">
+                <h3>Automatic Thought(s)</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">What thought(s) and/or image(s) went through your mind?</p>
+                <textarea id="thoughts" placeholder="What thoughts went through your mind during or after the situation?"></textarea>
+                <div class="belief-slider">
+                    <label>How much did you believe the thought(s)?</label>
+                    <input type="range" id="belief-initial" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('initial', this.value)">
+                    <div class="belief-value" id="belief-initial-value">50%</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3>Emotion(s)</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">What emotion(s) did you feel?</p>
+                <textarea id="emotions" placeholder="Sad, anxious, angry, etc."></textarea>
+                <div class="belief-slider">
+                    <label>How intense was the emotion?</label>
+                    <input type="range" id="emotion-intensity" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('emotion', this.value)">
+                    <div class="belief-value" id="emotion-intensity-value">50%</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3>Cognitive Distortions</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Check all that apply</p>
+                <div style="max-height: 200px; overflow-y: auto; border: 1px solid #cbd5e0; border-radius: 6px; padding: 10px; background: white;">
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="all-nothing" name="distortions" value="all-nothing">
+                        <label for="all-nothing" style="margin-left: 8px; font-size: 13px; cursor: pointer;">All-or-nothing thinking</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="catastrophizing" name="distortions" value="catastrophizing">
+                        <label for="catastrophizing" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Catastrophizing</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="disqualifying" name="distortions" value="disqualifying">
+                        <label for="disqualifying" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Disqualifying the positive</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="emotional-reasoning" name="distortions" value="emotional-reasoning">
+                        <label for="emotional-reasoning" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Emotional reasoning</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="labeling" name="distortions" value="labeling">
+                        <label for="labeling" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Labeling</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="magnification" name="distortions" value="magnification">
+                        <label for="magnification" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Magnification/minimization</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="mental-filter" name="distortions" value="mental-filter">
+                        <label for="mental-filter" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Mental filter</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="mind-reading" name="distortions" value="mind-reading">
+                        <label for="mind-reading" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Mind reading</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="overgeneralization" name="distortions" value="overgeneralization">
+                        <label for="overgeneralization" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Overgeneralization</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="personalization" name="distortions" value="personalization">
+                        <label for="personalization" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Personalization</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="should-statements" name="distortions" value="should-statements">
+                        <label for="should-statements" style="margin-left: 8px; font-size: 13px; cursor: pointer;">"Should" statements</label>
+                    </div>
+                    <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
+                        <input type="checkbox" id="tunnel-vision" name="distortions" value="tunnel-vision">
+                        <label for="tunnel-vision" style="margin-left: 8px; font-size: 13px; cursor: pointer;">Tunnel vision</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3>Adaptive Response</h3>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Use the questions below to compose a response to the automatic thought(s)</p>
+                <textarea id="adaptive-response" placeholder="Write a more balanced, realistic response to your automatic thoughts..."></textarea>
+                <div class="belief-slider">
+                    <label>How much do you believe this response?</label>
+                    <input type="range" id="response-belief" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('response', this.value)">
+                    <div class="belief-value" id="response-belief-value">50%</div>
+                </div>
+            </div>
+
+            <div class="column">
+                <h3>Outcome</h3>
+                <textarea id="outcome-thoughts" placeholder="How much do you now believe each automatic thought?" style="min-height: 60px;"></textarea>
+                <div class="belief-slider">
+                    <label>How much do you now believe the original thought?</label>
+                    <input type="range" id="belief-final" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('final', this.value)">
+                    <div class="belief-value" id="belief-final-value">50%</div>
+                </div>
+                <textarea id="outcome-emotions" placeholder="What emotion(s) do you feel now?" style="margin-top: 10px; min-height: 60px;"></textarea>
+                <div class="belief-slider">
+                    <label>How intense?</label>
+                    <input type="range" id="outcome-emotion-intensity" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('outcome-emotion', this.value)">
+                    <div class="belief-value" id="outcome-emotion-intensity-value">50%</div>
+                </div>
+                <textarea id="outcome-action" placeholder="What would be good to do?" style="margin-top: 10px; min-height: 60px;"></textarea>
+            </div>
+        </div>
+
+
+
+        <div class="questions-section">
+            <h3>Questions to Help Compose an Alternative Response</h3>
+            <div class="question">
+                <strong>(1)</strong> What is the evidence that the automatic thought is true? Not true?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+            <div class="question">
+                <strong>(2)</strong> Is there an alternative explanation?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+            <div class="question">
+                <strong>(3)</strong> If the worst happened, how could I cope? What's the best that could happen? What's the most realistic outcome?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+            <div class="question">
+                <strong>(4)</strong> What's the effect of my believing the automatic thought? What could be the effect of my changing my thinking?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+            <div class="question">
+                <strong>(5)</strong> If [person's name] was in this situation and had this thought, what would I tell them?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+            <div class="question">
+                <strong>(6)</strong> What would be good to do?
+                <textarea placeholder="Write your answer here..." style="width: 100%; margin-top: 8px; min-height: 60px; border: 1px solid #3182ce; border-radius: 4px; padding: 8px;"></textarea>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn" onclick="saveRecord()">Save Thought Record</button>
+            <button class="btn btn-secondary" onclick="clearRecord()">Clear All</button>
+            <button class="btn btn-secondary" onclick="printRecord()">Print</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);">
+            <p style="font-size: 12px; color: #666; margin: 0;">© 2018. Adapted from J. Beck (2020) Cognitive Behavior Therapy: Basics and Beyond, 3rd edition.</p>
+        </div>
+    </div>
+
+    <script>
+        function updateBeliefValue(type, value) {
+            const elementId = type === 'initial' ? 'belief-initial-value' : 
+                            type === 'emotion' ? 'emotion-intensity-value' : 
+                            type === 'response' ? 'response-belief-value' : 
+                            type === 'final' ? 'belief-final-value' : 
+                            'outcome-emotion-intensity-value';
+            document.getElementById(elementId).textContent = value + '%';
+        }
+
+        function saveRecord() {
+            const record = {
+                datetime: document.getElementById('datetime').value,
+                situation: document.getElementById('situation').value,
+                thoughts: document.getElementById('thoughts').value,
+                beliefInitial: document.getElementById('belief-initial').value,
+                emotions: document.getElementById('emotions').value,
+                emotionIntensity: document.getElementById('emotion-intensity').value,
+                adaptiveResponse: document.getElementById('adaptive-response').value,
+                responseBlief: document.getElementById('response-belief').value,
+                outcomeThoughts: document.getElementById('outcome-thoughts').value,
+                beliefFinal: document.getElementById('belief-final').value,
+                outcomeEmotions: document.getElementById('outcome-emotions').value,
+                outcomeAction: document.getElementById('outcome-action').value,
+                distortions: Array.from(document.querySelectorAll('input[name="distortions"]:checked')).map(cb => cb.value)
+            };
+
+            // In a real website, you would send this to a server
+            console.log('Thought Record Saved:', record);
+            alert('Thought record saved! (In a real implementation, this would save to your database)');
+        }
+
+        function clearRecord() {
+            if (confirm('Are you sure you want to clear all entries?')) {
+                document.querySelectorAll('textarea, input[type="datetime-local"]').forEach(input => input.value = '');
+                document.querySelectorAll('input[type="range"]').forEach(slider => {
+                    slider.value = 50;
+                    const type = slider.id.includes('belief-initial') ? 'initial' : 
+                               slider.id.includes('emotion-intensity') ? 'emotion' : 
+                               slider.id.includes('response') ? 'response' : 
+                               slider.id.includes('belief-final') ? 'final' : 'outcome-emotion';
+                    updateBeliefValue(type, 50);
+                });
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            }
+        }
+
+        function printRecord() {
+            window.print();
+        }
+
+        // Set current date/time on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all sliders to show their default values
+            updateBeliefValue('initial', 50);
+            updateBeliefValue('emotion', 50);
+            updateBeliefValue('response', 50);
+            updateBeliefValue('final', 50);
+            updateBeliefValue('outcome-emotion', 50);
+        });
+    </script>
+</body>
+</html>
