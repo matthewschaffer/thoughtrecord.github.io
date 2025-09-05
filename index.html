@@ -203,6 +203,7 @@
             background: #4a5568;
         }
 
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -227,12 +228,6 @@
 
         <div class="thought-record-grid">
             <div class="column">
-                <h3>Situation</h3>
-                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What event or situation triggered the unpleasant emotion? (external or internal)</p>
-                <textarea id="situation" placeholder="Describe the situation that triggered your emotional response..."></textarea>
-            </div>
-
-            <div class="column">
                 <h3>Automatic Thought(s)</h3>
                 <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What thought(s) and/or image(s) went through your mind?</p>
                 <textarea id="thoughts" placeholder="What thoughts went through your mind during or after the situation?"></textarea>
@@ -244,8 +239,14 @@
             </div>
 
             <div class="column">
+                <h3>Situation</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What event or situation triggered the unpleasant emotion? (external or internal)</p>
+                <textarea id="situation" placeholder="Describe the situation that triggered your emotional response..."></textarea>
+            </div>
+
+            <div class="column">
                 <h3>Emotion(s)</h3>
-                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What emotion(s) did you feel?</p>
+                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What emotion(s) did you feel? <a style="font-size: 14px; color:#3182ce;" target="_blank" rel="noopener noreferrer" href="https://static1.squarespace.com/static/656f4e4dababbd7c042c4946/t/66985bc0f96a7356b12a900a/1721260992997/Feelings+Wheel+Download-ables.pdf">(Feelings Wheel)</a></p>
                 <textarea id="emotions" placeholder="Sad, anxious, angry, etc."></textarea>
                 <div class="belief-slider">
                     <label>How intense was the emotion?</label>
@@ -264,52 +265,49 @@
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="catastrophizing" name="distortions" value="catastrophizing">
-                        <label for="catastrophizing" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Catastrophizing</strong> - Example: “I’ll be so upset, I won’t be able to function at all.”</label>
+                        <label for="catastrophizing" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Catastrophizing</strong> - Example: "I’ll be so upset, I won’t be able to function at all."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="disqualifying" name="distortions" value="disqualifying">
-                        <label for="disqualifying" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Disqualifying the positive</strong> - Example: “I did that project well, but that doesn’t mean I’m competent; I just got
-                            lucky.”</label>
+                        <label for="disqualifying" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Disqualifying the positive</strong> - Example: "I did that project well, but that doesn’t mean I’m competent; I just got
+                            lucky."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="emotional-reasoning" name="distortions" value="emotional-reasoning">
-                        <label for="emotional-reasoning" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Emotional reasoning</strong> - Example: “I know I do a lot of things okay at work, but I still feel like I’m a failure.”</label>
+                        <label for="emotional-reasoning" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Emotional reasoning</strong> - Example: "I know I do a lot of things okay at work, but I still <em>feel</em> like I’m a failure."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="labeling" name="distortions" value="labeling">
-                        <label for="labeling" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Labeling</strong> - Examples: “I’m a failure.” “He’s no good.”</label>
+                        <label for="labeling" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Labeling</strong> - Example: "I’m a failure." "He’s no good."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="magnification" name="distortions" value="magnification">
-                        <label for="magnification" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Magnification/minimization</strong> - Example: “Getting a mediocre evaluation proves how inadequate I am. Getting
-                            high marks doesn’t mean I’m smart.”</label>
+                        <label for="magnification" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Magnification/minimization</strong> - Example: "Getting a mediocre evaluation proves how inadequate I am." "Getting high marks doesn’t mean I’m smart."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="mental-filter" name="distortions" value="mental-filter">
-                        <label for="mental-filter" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Mental filter</strong> - Example: “Because I got one low rating on my evaluation [which also contained
-                            several high ratings], it means I’m doing a lousy job.”</label>
+                        <label for="mental-filter" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Mental filter</strong> - Example: "Because I got one low rating on my evaluation [which also contained
+                            several high ratings], it means I’m doing a lousy job."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="mind-reading" name="distortions" value="mind-reading">
-                        <label for="mind-reading" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Mind reading</strong> - Example: “He’s thinking that I don’t know the first thing about this project.”</label>
+                        <label for="mind-reading" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Mind reading</strong> - Example: "He’s thinking that I don’t know the first thing about this project."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="overgeneralization" name="distortions" value="overgeneralization">
-                        <label for="overgeneralization" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Overgeneralization</strong> - Example: “Because I felt uncomfortable at the get-together, I don’t have what it
-                            takes to make friends.”</label>
+                        <label for="overgeneralization" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Overgeneralization</strong> - Example: "Because I felt uncomfortable at the get-together, I don’t have what it takes to make friends."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="personalization" name="distortions" value="personalization">
-                        <label for="personalization" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Personalization</strong> - Example: “The repairman was curt to me because I did something wrong.”</label>
+                        <label for="personalization" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Personalization</strong> - Example: "The repairman was curt to me because I did something wrong."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="should-statements" name="distortions" value="should-statements">
-                        <label for="should-statements" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>"Should" & "Must" statements</strong> - Example: “It’s terrible that I made a mistake. I should always do my best.”</label>
+                        <label for="should-statements" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>"Should" & "Must" statements</strong> - Example: "It’s terrible that I made a mistake. I should always do my best."</label>
                     </div>
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
                         <input type="checkbox" id="tunnel-vision" name="distortions" value="tunnel-vision">
-                        <label for="tunnel-vision" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Tunnel vision</strong> - Example: “My son’s teacher can’t do anything right. He’s critical and insensitive and lousy at
-                            teaching.”</label>
+                        <label for="tunnel-vision" style="margin-left: 8px; font-size: 13px; cursor: pointer;"><strong>Tunnel vision</strong> - Example: "My son’s teacher can’t do anything right. He’s critical and insensitive and lousy at teaching."</label>
                     </div>
                 </div>
             </div>
@@ -322,11 +320,10 @@
                     <div style="font-size: 14px; color: #2c5282; margin-bottom: 8px; font-weight: 500;">Questions to consider:</div>
                     <div style="font-size: 14px; color: #4a5568; line-height: 1.4;">
                         <div style="margin-bottom: 4px;"><strong>1.</strong> What is the evidence that the automatic thought is true? Not true?</div>
-                        <div style="margin-bottom: 4px;"><strong>2.</strong> Is there an alternative explanation?</div>
-                        <div style="margin-bottom: 4px;"><strong>3.</strong> If the worst happened, how could I cope? What's the best that could happen? What's the most realistic outcome?</div>
-                        <div style="margin-bottom: 4px;"><strong>4.</strong> What's the effect of my believing the automatic thought? What could be the effect of my changing my thinking?</div>
-                        <div style="margin-bottom: 4px;"><strong>5.</strong> If [person's name] was in this situation and had this thought, what would I tell them?</div>
-                        <div><strong>6.</strong> What would be good to do?</div>
+                        <div style="margin-bottom: 4px;"><strong>2.</strong> Is there an alternative explanation for the thought?</div>
+                        <div style="margin-bottom: 4px;"><strong>3.</strong> If the worst happened, how could you cope? What's the best that could happen? What's the most realistic outcome?</div>
+                        <div style="margin-bottom: 4px;"><strong>4.</strong> What's the effect of believing the automatic thought? What could be the effect of changing your thinking?</div>
+                        <div style="margin-bottom: 4px;"><strong>5.</strong> If [friend's name] was in this situation and had this thought, what would you tell them?</div>
                     </div>
                 </div>
                 
@@ -340,7 +337,6 @@
 
             <div class="column">
                 <h3>Outcome</h3>
-                <textarea id="outcome-thoughts" placeholder="How much do you now believe each automatic thought?" style="min-height: 60px;"></textarea>
                 <div class="belief-slider">
                     <label>How much do you now believe the original thought?</label>
                     <input type="range" id="belief-final" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('final', this.value)">
@@ -348,11 +344,11 @@
                 </div>
                 <textarea id="outcome-emotions" placeholder="What emotion(s) do you feel now?" style="margin-top: 10px; min-height: 60px;"></textarea>
                 <div class="belief-slider">
-                    <label>How intense?</label>
+                    <label>How intense are the emotions?</label>
                     <input type="range" id="outcome-emotion-intensity" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('outcome-emotion', this.value)">
                     <div class="belief-value" id="outcome-emotion-intensity-value">50%</div>
                 </div>
-                <textarea id="outcome-action" placeholder="What would be good to do?" style="margin-top: 10px; min-height: 60px;"></textarea>
+                <textarea id="outcome-action" placeholder="What would be good to do now (i.e. go to the party, finish your work, etc.)?" style="margin-top: 10px; min-height: 60px;"></textarea>
             </div>
         </div>
 
@@ -362,6 +358,7 @@
 
         <div style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);">
             <p style="font-size: 12px; color: #666; margin: 0;">© 2018. Adapted from J. Beck (2020) Cognitive Behavior Therapy: Basics and Beyond, 3rd edition.</p>
+            <p style="font-size: 12px; color: #666; margin: 0;">An MTS Production</p>
         </div>
     </div>
 
