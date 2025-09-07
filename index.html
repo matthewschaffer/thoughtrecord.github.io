@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="//images/ThR_favicon_white_head.ico" type="image/x-icon" >    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thought Record</title>
@@ -67,6 +68,15 @@
             border-radius: 8px;
             margin-bottom: 30px;
             border-left: 4px solid #3182ce;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .save-function {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff0f0f;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
@@ -226,6 +236,10 @@
             <strong>Instructions:</strong> When you notice your mood getting worse or find yourself engaging in unhelpful behavior (including procrastination!), ask yourself <span class="highlight-quote">"What's going through my mind right now?"</span> Complete this thought record to examine and challenge your thoughts. Spend just 5-10 minutes on this exercise. <strong>Remember: It was worth doing this worksheet if your mood improves by 10% or more.</strong>
         </div>
 
+        <div class="save-function">
+            <strong>NOTE: What you write here stays here. It is private. There is no save function.</strong> 
+        </div>
+
         <div class="thought-record-grid">
             <div class="column">
                 <h3>Automatic Thought(s)</h3>
@@ -356,9 +370,13 @@
             <button class="btn btn-secondary" onclick="clearRecord()">Clear All</button>
         </div>
 
+        <div class="actions">
+            <a target="_blank" href="https://forms.gle/ps6pe6vDCDp3BHSq5"><button class="btn btn-secondary">Anonymous Feedback</button></a>
+        </div>        
+
         <div style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);">
             <p style="font-size: 12px; color: #666; margin: 0;">© 2018. Adapted from J. Beck (2020) Cognitive Behavior Therapy: Basics and Beyond, 3rd edition.</p>
-            <p style="font-size: 12px; color: #666; margin: 0;">An MTS Production</p>
+            <p style="font-size: 12px; color: #666; margin: 0;">An MTS Website</p>
         </div>
     </div>
 
