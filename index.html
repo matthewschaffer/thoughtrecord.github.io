@@ -67,7 +67,7 @@
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
-            border-left: 4px solid #3182ce;
+            border-left: 4px solid #0077c8;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
@@ -81,7 +81,7 @@
         }
 
         .highlight-quote {
-            color: #3182ce;
+            color: #0077c8;
             font-weight: bold;
         }
 
@@ -105,7 +105,7 @@
             min-height: 250px;
         }
 
-        .column h3 {
+        .column h2 {
             color: #2d3748;
             font-size: 1.1em;
             margin-bottom: 10px;
@@ -185,8 +185,15 @@
         }
 
         .actions {
-            text-align: center;
-            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .action-btn {
+            width: fit-content;
         }
 
         .btn {
@@ -199,6 +206,7 @@
             font-size: 16px;
             margin: 0 10px;
             transition: background-color 0.3s;
+            text-decoration: none;
         }
 
         .btn:hover {
@@ -242,35 +250,35 @@
 
         <div class="thought-record-grid">
             <div class="column">
-                <h3>Automatic Thought(s)</h3>
+                <h2>Automatic Thought(s)</h2>
                 <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What thought(s) and/or image(s) went through your mind?</p>
                 <textarea id="thoughts" placeholder="What thoughts went through your mind during or after the situation?"></textarea>
                 <div class="belief-slider">
-                    <label>How much did you believe the thought(s)?</label>
+                    <label for="belief-initial">How much did you believe the thought(s)?</label>
                     <input type="range" id="belief-initial" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('initial', this.value)">
                     <div class="belief-value" id="belief-initial-value">50%</div>
                 </div>
             </div>
 
             <div class="column">
-                <h3>Situation</h3>
+                <h2>Situation</h2>
                 <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What event or situation triggered the unpleasant emotion? (external or internal)</p>
                 <textarea id="situation" placeholder="Describe the situation that triggered your emotional response..."></textarea>
             </div>
 
             <div class="column">
-                <h3>Emotion(s)</h3>
+                <h2>Emotion(s)</h2>
                 <p style="font-size: 14px; color: #666; margin-bottom: 10px;">What emotion(s) did you feel? <a style="font-size: 14px; color:#3182ce;" target="_blank" rel="noopener noreferrer" href="https://static1.squarespace.com/static/656f4e4dababbd7c042c4946/t/66985bc0f96a7356b12a900a/1721260992997/Feelings+Wheel+Download-ables.pdf">(Feelings Wheel)</a></p>
                 <textarea id="emotions" placeholder="Sad, anxious, angry, etc."></textarea>
                 <div class="belief-slider">
-                    <label>How intense was the emotion?</label>
+                    <label for="emotion-intensity">How intense was the emotion?</label>
                     <input type="range" id="emotion-intensity" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('emotion', this.value)">
                     <div class="belief-value" id="emotion-intensity-value">50%</div>
                 </div>
             </div>
 
             <div class="column">
-                <h3>Cognitive Distortions</h3>
+                <h2>Cognitive Distortions</h2>
                 <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Check all that apply</p>
                 <div style="max-height: 200px; overflow-y: auto; border: 1px solid #cbd5e0; border-radius: 6px; padding: 10px; background: white;">
                     <div class="distortion-item" style="margin-bottom: 8px; padding: 5px; background: #f8fafc; border-radius: 4px;">
@@ -327,7 +335,7 @@
             </div>
 
             <div class="column">
-                <h3>Adaptive Response</h3>
+                <h2>Adaptive Response</h2>
                 <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Use the questions below to compose a response to the automatic thought(s)</p>
                 
                 <div style="background: #f8fafc; border: 1px solid #3182ce; border-radius: 6px; padding: 12px; margin-bottom: 15px;">
@@ -343,22 +351,22 @@
                 
                 <textarea id="adaptive-response" placeholder="Write a more balanced, realistic response to your automatic thoughts..." style="min-height: 120px;"></textarea>
                 <div class="belief-slider">
-                    <label>How much do you believe this response?</label>
+                    <label for="response-belief">How much do you believe this response?</label>
                     <input type="range" id="response-belief" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('response', this.value)">
                     <div class="belief-value" id="response-belief-value">50%</div>
                 </div>
             </div>
 
             <div class="column">
-                <h3>Outcome</h3>
+                <h2>Outcome</h2>
                 <div class="belief-slider">
-                    <label>How much do you now believe the original thought?</label>
+                    <label for="belief-final">How much do you now believe the original thought?</label>
                     <input type="range" id="belief-final" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('final', this.value)">
                     <div class="belief-value" id="belief-final-value">50%</div>
                 </div>
                 <textarea id="outcome-emotions" placeholder="What emotion(s) do you feel now?" style="margin-top: 10px; min-height: 60px;"></textarea>
                 <div class="belief-slider">
-                    <label>How intense are the emotions?</label>
+                    <label for="outcome-emotion-intensity">How intense are the emotions?</label>
                     <input type="range" id="outcome-emotion-intensity" min="0" max="100" step="5" value="50" oninput="updateBeliefValue('outcome-emotion', this.value)">
                     <div class="belief-value" id="outcome-emotion-intensity-value">50%</div>
                 </div>
@@ -367,12 +375,14 @@
         </div>
 
         <div class="actions">
-            <button class="btn btn-secondary" onclick="clearRecord()">Clear All</button>
-        </div>
+            <button class="btn btn-secondary action-btn" onclick="clearRecord()">
+                <span>Clear All</span>
+            </button>
 
-        <div class="actions">
-            <a target="_blank" href="https://forms.gle/ps6pe6vDCDp3BHSq5"><button class="btn btn-secondary">Anonymous Feedback</button></a>
-        </div>        
+            <a class="btn btn-secondary action-btn" target="_blank" href="https://forms.gle/ps6pe6vDCDp3BHSq5">
+                <span>Anonymous Feedback</span>
+            </a>      
+        </div>
 
         <div style="text-align: center; margin-top: 20px; padding: 15px; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);">
             <p style="font-size: 12px; color: #666; margin: 0;">© 2018. Adapted from J. Beck (2020) Cognitive Behavior Therapy: Basics and Beyond, 3rd edition.</p>
